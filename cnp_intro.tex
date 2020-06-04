@@ -1,0 +1,259 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{mathtext}
+\usepackage{cmap}					% поиск в PDF
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8x]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{amscd,amssymb}
+\usepackage{amsfonts,amsmath,array}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{lemma}{Лемма}
+\usepackage{titlesec}
+\titleformat{\section}[block]{\Large\bfseries\centering}{\thesection}{1ex}{}
+
+\usepackage{geometry} % Меняем поля страницы
+\geometry{left=3cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+\pagestyle{empty}
+
+\usepackage{setspace}
+\usepackage[14pt]{extsizes}
+
+\begin{document} 
+
+\onehalfspacing
+
+\maketitle
+
+\newpage
+\pagestyle{plain}
+\section{ВВЕДЕНИЕ}
+Граф в математике представляет из себя множество вершин и множество ребер, то есть соединений между парами вершин. Многие структуры, представляющие практический интерес в математике и информатике, могут быть представлены графами. Плоским дистанционным графом называется граф, вершины которого --- точки плоскости, а ребрами соединены вершины, находящиеся на евклидовом расстоянии~1. Хроматическое число графа --- это минимальное число цветов, в которое можно покрасить вершины этого графа так, чтобы вершины, соединенные ребрами, были покрашены в разные цвета (обозначим его за $\chi(G)$).
+\subsection{О хроматическом числе плоскости}
+ Хроматическое число плоскости --- минимальное число цветов, в которое можно покрасить плоскость так, чтобы точки на расстоянии~1 были покрашены в разные цвета (обозначим его за $\chi(\mathbb{R}^2)$). Так как вершины плоского дистанционного графа принадлежат плоскости, то хроматическим числом графа можно оценить снизу хроматическое число плоскости \cite{Rai}. Хорошо известная следующая теорема:
+ \begin{theorem} \label{1}
+ $4\leq \chi(\mathbb{R}^2)\leq7$
+ \end{theorem}
+ 
+  \begin{figure}[h]
+    \center{\includegraphics[width=0.5\linewidth]{hex_plane1.png}}
+    \caption{Раскраска плоскости в 7 цветов}
+\end{figure}
+ 
+ Получить эти оценки сравнительно несложно. Более чем за 60 лет этот результат не был улучшен. В 2018 г. Обри Ди Греем\cite{de Grey} были найдены первые примеры плоских дистанционных графов с хроматическим числом 5. В статье \cite{Heule} был найден граф с минимальным из известных на данный момент числом вершин $n = 553$. В работе \cite{Exoo} была предложена принципиально иная конструкция графа. Другие примеры, кроме перечисленных,  на текущий момент в литературе не описаны. Их нахождение может привести к дальнейшим продвижениям в задаче о хроматическом числе плоскости.
+ \begin{theorem} \label{2}
+ $\chi(\mathbb{R}^2)\geq 5$
+ \end{theorem}
+ 
+Доказательство основано на компьютерном переборе раскрасок графа на 1581 вершине.
+Позднее был найден граф на 553 вершинах.
+ 
+ \begin{figure}[h]
+    \center{\includegraphics[width=0.8\linewidth]{pic_golomb.png}}
+  \hfill
+  \caption{Примеры дистанционных графов с хроматическим числом 4}
+\end{figure}
+\begin{figure}[h]
+    \center{\includegraphics[width=0.6\linewidth]{graph_h.png}}
+  \hfill
+  \caption{Граф Обри Ди Грея}
+\end{figure}
+\subsection{Хроматические числа вещественных пространств}
+В одномерном случае $\chi(\mathbb{R}) = 2$. При $n = 2$ получается в точности исходная формулировка вопроса о хроматическом числе плоскости. При $n = 3$ задача представляется еще более сложной. Последние оценки с обеих сторон получены в текущем столетии.
+
+\begin{theorem} \label{3}
+ $6\leq \chi(\mathbb{R}^3)\leq 15$
+ \end{theorem}
+ 
+ Нижняя оценка принадлежит О. Нечуштану \cite{{Nech}}, верхняя — Д. Кулсону \cite{Coul}.
+ В асимптотике выполняются следующие оценки: 
+ 
+ \begin{theorem} \label{4}
+ $(1.239...+o(1))^n\leq \chi(\mathbb{R}^n)\leq (3+o(1))^n$
+ \end{theorem}
+ Нижняя оценка принадлежит А. М. Райгородскому \cite{Rai1}, верхняя — Д. Г. Ларману и К. А. Роджерсу \cite{Larm}. Асимптотические нижние оценки в этой и смежных задачах были получены линейно-алгебраическим методом, который интересен сам по себе.
+
+\subsection{Хроматические числа рациональных пространств}
+Одномерный случай тривиален: $\chi(\mathbb{Q}) = 2$. Как ни странно, точное значение хроматического числа $\mathbb{Q}^n$ известно не только в размерности $2$, но и в размерностях $3$ и $4$.
+
+\begin{theorem} \label{5}
+ $\chi(\mathbb{Q}^2) = \chi(\mathbb{Q}^3) = 2, \chi(\mathbb{Q}^4) = 4 $
+ \end{theorem}
+ 
+ Лучшая асимптотическая нижняя оценка принадлежит А. М. Райгородскому \cite{Rai1}, верхняя — Д. Г. Ларману и К. А. Роджерсу \cite{Larm}. 
+
+\begin{theorem} \label{6}
+ $(1.199...+o(1))^n\leq \chi(\mathbb{Q}^n)\leq (3+o(1))^n$
+ \end{theorem}
+ 
+ \subsection{Хроматическое число сферы}
+ Аналогично можно определить хроматическое число двумерной сферы и сфер больших размерностей. Расстояние при этом считается евклидовым. При этом важным параметром становится радиус сферы.
+Очевидно, что $\chi(S_r^n) = 1$ при $r < \frac{1}{2}$.
+ Будет разумным определять хроматическое число сферы при $r \geq \frac{1}{2}$. В статье \cite{Simmons} получены следующие результаты:
+ 
+ \begin{theorem} \label{7}
+ $4 \leq \chi(S_r)$ \text{при} $\frac{1}{\sqrt{3}} \leq r.$ \text{И эта оценка точна, т.к.} $\chi(S_{\frac{1}{\sqrt{2}}}) = 4$
+ \end{theorem}
+ 
+ В 1983 г.  Л. Ловас доказал, что  $\chi(S_{r}^{n-1}) \geq n.$ В статье \cite{Rai_sphere} А.М. Райгородским показал, что хроматическое число сферы растет экспоненциально при росте размерности для всех $r > \frac{1}{2}$. 
+  
+ \begin{theorem} \label{8}
+\text{Если} $r \in (\frac{1}{2}, \frac{1}{\sqrt{2}}]$, \text{то} $\chi(S_{r}^{n-1}) \geq \Bigg(2(\frac{1}{8r^2})^{\frac{1}{8r^2}}(1-\frac{1}{8r^2})^{1-\frac{1}{8r^2}}+o(1)\Bigg)^n$.
+
+\text{Если} $r \geq \frac{1}{\sqrt{2}}$, \text{то} $\chi(S_{r}^{n-1}) \geq \Bigg(2(\frac{1}{4})^{\frac{1}{4}}(\frac{3}{4})^{\frac{3}{4}}+o(1)\Bigg)^n$.
+ \end{theorem}
+ 
+ Очевидно, что $\chi(S_r^{n-1}) \leq \chi(\mathbb{R}^n) \leq (3+o(1))^n$, т.к. $S_r^{n-1}$ лежит в $\mathbb{R}^n$. В общем случае лучших верхних оценок нет. Однако К.А. Роджерс \cite{Rogers} получил более точную оценку в случае $r < \frac{3}{2}$.
+ 
+ \begin{theorem} \label{9}
+\text{Если} $r  < \frac{3}{2},$ \text{то} $\chi(S_r^{n-1}) \leq (2r+o(1))^n$.
+\end{theorem}
+
+В работе \cite{Pros} Р. Просановым получена следующая верхняя оценка хроматического числа сферы:
+
+ \begin{theorem} \label{10}
+\[ \chi(S_r^{n-1}) \leq (x(r)+o(1))^n,\: \text{где} \: x(r) = \begin{cases}\sqrt{5-\frac{2}{r}+4\sqrt{1-\frac{5r^2-1}{4r^4}}}, \quad r > \frac{\sqrt{5}}{2} \\ 
+
+2r, \quad \frac{1}{2} < r \leq  \frac{\sqrt{5}}{2}
+\end{cases}\]
+\end{theorem}
+
+\subsection{Измеримое хроматическое число}
+ Измеримое хроматическое число пространства $\mathbb{R}^n$ --- минимальное число $m$ такое, что $\mathbb{R}^n$ можно разбить на $m$ частей, измеримых по Лебегу, так, что точки $\mathbb{R}^n$, лежащие на расстоянии 1, попадут в разные части (обозначим его за $\chi_m(\mathbb{R}^n))$. Одна из причин изучать измеримое хроматическое число состоит в том, что становятся доступны более сильные аналитические инструменты.
+ 
+ Изучение измеримого хроматического числа было начато Фальконером \cite{Falc}, который доказал, что $\chi_m(\mathbb{R}^2) > 5$. На тот момент это было больше, чем известная оценка снизу для $\chi(\mathbb{R}^2)$.
+ 
+ Хроматическое число пространство связано с хроматическим числом единичной сферы $S^{n-1} = \{x \in \mathbb{R}^2 : x \cdot x = 1\}.$ При $ -1 < t < 1$ рассмотрим граф $G(n,t)$, чьи вершины --- это точки $S^{n-1}$, и две вершины соединены ребром, если их скаkярное произведение $x \cdot y$ равно $t$. Хроматическое число $G(n,t)$ и его измеримая версия обозначаются как $\chi(G(n,t))$ и $\chi_m(G(n,t))$ соответственно и определяются аналогично пространственному случаю.
+Хроматическое число этого графа было изучено Л.Ловасом \cite{Lov}, в частности в том случае, когда $t$ мало.
+
+
+\begin{theorem} \label{11}
+$n \leq \chi(G(n,t))$ при $-1 < t < 1$,
+
+$\chi(G(n,t)) \leq n + 1$ при $-1 < t \leq -1/n$.
+
+\end{theorem}
+
+П. Франкл и Р. Уилсон \cite{FrW} получили следующий результат для ортогональных векторов.
+
+ \begin{theorem} \label{12}
+
+$(1+o(1))(1.13)^n \leq \chi_m(G(n,0)) \leq 2^{n-1} $.
+
+\end{theorem}
+
+Хроматическое число $G(n,t)$ (и его измеримая версия) дает нижнюю оценку для хроматического числа $\mathbb{R}^n$. После соответствующего сжатия, каждая правильная покраска $\mathbb{R}^n$, пересеченная с $S^{n-1}$, даст правильную покраску графа $G(n,t)$, а операция пересечения сохраняет измеримость по Лебегу.
+
+Неизвестно, верно ли, что $\chi_m(\mathbb{R}^n) = \chi(\mathbb{R}^n)$. В работе \cite{Bach} было показано, что $(1.268... +o(1))^n \leq \chi_m(\mathbb(R)^n) \leq (3 + o(1))^n $. Таким образом, асимптотические нижние оценки этих величин сильно разнятся.
+
+\subsection{Хроматическое число плоскости Лобачевского}
+Для плоскости Лобачевского ставится аналогичная задача отыскания хроматического числа, однако, в отличие от хроматического числа сферы, где важным параметром был радиус сферы, в этом случае параметром становится запрещенное расстояние $d$. Хроматическое число обозначается как $\chi(\mathbb{H},d).$
+
+Изучение $\chi(\mathbb{H},d)$ при росте $d$ можно сравнить с изучением $\chi(\mathbb{R}^n)$ при росте $n$, которое, как известно, растет экспоненциально. Однако доказательство, аналогичное случаю пространства \cite{Klo}, дает нижнюю оценку $4$ для $\chi(\mathbb{H},d)$.
+
+В работе \cite{PP} получены следующие верхние оценки.
+\begin{theorem}
+$\chi(\mathbb{H},d) \leq 9$ при $d \leq 2 \ln{2}$.
+ 
+$\chi(\mathbb{H},d) \leq 12$ при $d \leq 2 \ln{3}$.
+  
+$\chi(\mathbb{H},d) \leq 5(\ceil{\frac{d}{\ln{4}}})$ при $d > 2 \ln{3}$.
+\end{theorem}
+
+В работе \cite{CG} получена более сильная нижняя оценка в предположении, что разбивать плоскость можно только на измеримые части. 
+\begin{theorem}
+Пусть дано $d > 0$. Предположим, что $C_1, \dots, C_k$ --- измеримые (по Хаару) подмножества $\mathbb{H}$ такие, что $\mathbb{H} =  \cup_i C_i$, и в каждом $C_i$ нет точек на расстоянии $d$. Тогда $k \geq 6$ при достаточно большом $d$.
+\end{theorem}
+
+При этом остается вопрос, получится ли тем же методом доказать, что $\chi_m(\mathbb{H},d) \rightarrow \infty$ при $d \rightarrow \infty$ или же как-то улучшить нижнюю оценку $4$ для обычного хроматического числа?
+ 
+  \begin{thebibliography}{99}
+ \bibitem{Nech}
+Oren Nechushtan. On the space chromatic number. Discrete mathematics, 256(1):499–507, 2002.
+\bibitem{Coul}
+ David Coulson. A 15-colouring of 3-space omitting distance one. Discrete mathematics, 256(1):83–90, 2002.
+ \bibitem{Rai1}
+ Андрей М. Райгородский. О хроматическом числе пространства. Успехи математических наук, 55(2):147–148, 2000.
+ \bibitem{Larm}
+  David G. Larman and Ambrose C. Rogers. The realization of distances within sets in Euclidean space. Mathematika, 19(01):1–24, 1972. 
+\bibitem{Rai}
+Райгородский А. М. Хроматические числа //М.: МЦНМО. – 2003.
+\bibitem{de Grey}
+de Grey A. D. N. J. The chromatic number of the plane is at least 5 //arXiv preprint arXiv:1804.02385. – 2018.
+\bibitem{Heule}
+Heule M. J. H. Computing small unit-distance graphs with chromatic number 5 //arXiv preprint arXiv:1805.12181. – 2018.
+\bibitem{Exoo}
+Exoo G., Ismailescu D. The Chromatic Number of the Plane is At Least 5: A New Proof //Discrete and Computational Geometry. – 2018. – С. 1-11.
+\bibitem{Simmons}
+Simmons G. J. The chromatic number of the sphere //Journal of the Australian Mathematical Society. – 1976. – Т. 21. – №. 4. – С. 473-480.
+\bibitem{Rai_sphere}
+Raigorodskii A. M. On the chromatic numbers of spheres in ℝ n //Combinatorica. – 2012. – Т. 32. – №. 1. – С. 111-123.
+\bibitem{Rogers}
+Rogers C. A. Covering a sphere with spheres //Mathematika. – 1963. – Т. 10. – №. 2. – С. 157-164.
+\bibitem{Pros}
+Prosanov R. Chromatic numbers of spheres //Discrete Mathematics. – 2018. – Т. 341. – №. 11. – С. 3123-3133.
+\bibitem{Falc}
+Falconer K. J. The realization of distances in measurable subsets covering Rn //Journal of Combinatorial Theory, Series A. – 1981. – Т. 31. – №. 2. – С. 184-189.
+\bibitem{Lov}
+Lovász L. Self-dual polytopes and the chromatic number of distance graphs on the sphere //Acta Sci. Math.(Szeged). – 1983. – Т. 45. – №. 1-4. – С. 317-323.
+\bibitem{FrW}
+Frankl P., Wilson R. M. Intersection theorems with geometric consequences //Combinatorica. – 1981. – Т. 1. – №. 4. – С. 357-368.
+\bibitem{Bach}
+Bachoc C., Passuello A., Thiery A. The density of sets avoiding distance 1 in Euclidean space //Discrete & Computational Geometry. – 2015. – Т. 53. – №. 4. – С. 783-808.
+\bibitem{Klo}
+Kloeckner B. Coloring distance graphs: a few answers and many questions //arXiv preprint arXiv:1305.2765. – 2013.
+\bibitem{PP}
+Parlier H., Petit C. Chromatic numbers for the hyperbolic plane and discrete analogs //arXiv preprint arXiv:1701.08648. – 2017.
+\bibitem{CG}
+DeCorte E., Golubev K. Lower bounds for the measurable chromatic number of the hyperbolic plane //Discrete & Computational Geometry. – 2019. – Т. 62. – №. 2. – С. 481-496.
+\end{thebibliography}
+
+
+\end{document}
+
+%Статья Симмонса:
+%https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BA3C1CF470D0226780ED33D06FD706CC/S1446788700019315a.pdf/chromatic_number_of_the_sphere.pdf
+% https://arxiv.org/pdf/1201.0486.pdf
+
+%сферические треугольники
+%https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ1QiS0b37xdK4ga-vXgIuRVwdy61bH_ZrIk4FifjMGTuOem-aP&usqp=CAU
+
+% асимптотика при растущем n
+% Райгородский, 2012
+%https://link.springer.com/content/pdf/10.1007/s00493-012-2709-9.pdf
+
+% Костина, Райгородский, 2015
+% https://link.springer.com/content/pdf/10.1134/S1064562415040298.pdf
+% https://link.springer.com/content/pdf/10.1134/S0001434619010036.pdf
+
+% Просанов, 2017
+%https://arxiv.org/pdf/1711.03193.pdf
+
+
+% измеримое хроматическое число 
+% https://link.springer.com/content/pdf/10.1007/s00039-009-0013-7.pdf
+% https://mipt.ru/upload/medialibrary/b26/5-10.pdf
+
+
+%хроматические числа плоскости Лобачевского
+
+% https://arxiv.org/pdf/1701.08648.pdf
+
+% измеримое хроматическое число плоскости Лобачевского
+% https://link.springer.com/article/10.1007/s00454-018-0027-8
+
+
+% Канель, Воронов, Черкашин
+% https://arxiv.org/pdf/1512.06444.pdf

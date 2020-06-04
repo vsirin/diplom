@@ -1,4 +1,5 @@
 \documentclass[14pt,a4paper]{report}
+%\documentclass[master]{disser}
 \usepackage{extsizes}% нестандартный 14-ый размер шрифта
 \usepackage[left=30mm,right=15mm,top=20mm,bottom=20mm,binding offset=0cm]{geometry} % поля страницы
 \usepackage[utf8]{inputenc} % Кодировка текста
@@ -20,6 +21,29 @@
 \usepackage{graphicx}
 \usepackage[autostyle]{csquotes}
 \usepackage{amssymb}
+%\usepackage{ntheorem}
+\usepackage{amsthm}
+
+\newtheoremstyle{break}
+  {\topsep}{\topsep}%
+  {\itshape}{}%
+  {\bfseries}{}%
+  {\newline}{}%
+
+\theoremstyle{plain}
+
+\newtheorem*{definition1}{Определение}
+\newtheorem*{theorem1}{Теорема}
+\newtheorem*{lemma1}{Лемма}
+
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{lemma}{Лемма}
+
+\theoremstyle{break}
+\newtheorem*{theorem_break1}{Теорема}
+
+\setlist[enumerate]{leftmargin=1cm,topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex,ref=\arabic{*},label=\arabic{*}.}
 
 \setlength\parindent{1cm}
 
@@ -29,6 +53,10 @@
 \usepackage{fancyhdr} % пакет для установки колонтитулов
 \pagestyle{fancy} % смена стиля оформления страниц
 \fancyhf{} % очистка текущих значений
+\fancyhead[LE,RO]{}
+\fancyhead[LO,RE]{}
+\fancyfoot[CE,CO]{}
+\fancyfoot[LE,RO]{}
 \fancyhead[C]{\thepage} % установка верхнего колонтитула
 \renewcommand{\headrulewidth}{0pt} % убрать разделительную линию
 
@@ -36,15 +64,19 @@
 
 \title{SCIENTIFIC WORK} % название документа
 
+\addbibresource{chapters/references.bib}
+
 \begin{document} % начало тела документа
 
 \includepdf[pages=-]{chapters/title.pdf}
 
 \input{chapters/contents.tex}
 
-\pagenumbering{arabic}
+%\pagenumbering{arabic}
 
 \input{chapters/introduction.tex}
+
+\input{chapters/chapter1.tex}
 
 \input{chapters/chapter2.tex}
 
