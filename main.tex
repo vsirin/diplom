@@ -23,6 +23,11 @@
 \usepackage{amssymb}
 %\usepackage{ntheorem}
 \usepackage{amsthm}
+%\usepackage{fourier}
+\usepackage{nicefrac}
+\usepackage{textcomp}
+
+\DeclareMathOperator{\diam}{Diam}
 
 \newtheoremstyle{break}
   {\topsep}{\topsep}%
@@ -35,10 +40,12 @@
 \newtheorem*{definition1}{Определение}
 \newtheorem*{theorem1}{Теорема}
 \newtheorem*{lemma1}{Лемма}
+\newtheorem*{statement1}{Утверждение}
 
 \newtheorem{definition}{Определение}
 \newtheorem{theorem}{Теорема}
 \newtheorem{lemma}{Лемма}
+\newtheorem{statement}{Утверждение}
 
 \theoremstyle{break}
 \newtheorem*{theorem_break1}{Теорема}
@@ -79,6 +86,8 @@
 \input{chapters/chapter1.tex}
 
 \input{chapters/chapter2.tex}
+
+\input{chapters/chapter3.tex}
 
 \input{chapters/conclusions.tex}
 
