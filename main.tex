@@ -28,6 +28,17 @@
 \usepackage{picture,slashbox}
 \usepackage{textcomp}
 \usepackage{makecell}
+\usepackage{tikz}
+\usepackage{placeins}
+
+\tikzset{
+    thickest/.style={line width=3pt},
+    empty/.style={decoration={markings,
+    mark=at position #1 with {\fill[white,draw=black,thin] circle (3pt);}},postaction={decorate}},
+    full/.style={decoration={markings,
+    mark=at position #1 with {\fill circle (3pt);}},postaction={decorate}},
+}
+
 \renewcommand\theadfont{\bfseries}
 
 \DeclareMathOperator{\diam}{Diam}
